@@ -7,10 +7,10 @@ document .addEventListener("deviceready", onDeviceReady, false);
  
 function onDeviceReady(){
 	
-$ ('#posicion').on ('click',function (){
-	getPosition();
-    });
-	
+$('#posicion').on('click',function(){
+		getPosition ();
+	});
+		
 $('#watch').on ('click',function (){
 	watchPosition();
 });
@@ -24,25 +24,24 @@ $('#watch').on ('click',function (){
 		 maximumAge:3600000
 	 }
 	 
-	var  watchID=navigator.geolocation.getCurrentPosition(onSuccess,onError,options);
+var watchID=navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
 	
 	function onSuccess(position){
+			
+			alert('Latitude:'       +position.coords.latitude       +'\n'+
+			'Longitude:'       +position.coords.longitude     +'\n'+
+			'Altitude:'       +position.coords.altitude       +'\n'+
+			'Accuracy:'       +position.coords.accuracy       +'\n'+
+			'Altitude Accuracy:'       +position.coords.altitudeAccuracy       +'\n'+
+			'Heading:'       +position.coords.heading      +'\n'+
+			'Speed:'       +position.coords.speed        +'\n'+
+			'Timestamp:'       +position.coords.timestamp       +'\n');
+		};
 		
-		alert('Latitude:'     +position.cords.latitude      +'\n'+
-		  'Longitude:'           +position.cords.longitude      +'\n'+
-		  'Altitude:'            +position.cords.altitude      +'\n'+
-		  'Accuracy:'               +position.cords.accuracy     +'\n'+
-		  'Altitude Accuracy:'        +position.cords.altitudeAccuracy    +'\n'+
-		  'Heading:'          +position.cords.heading     +'\n'+
-		  'Speed:'               +position.cords.speed      +'\n'+
-		  'Timestamp:'        +position.cords.timestamp      +'\n');
-	};
-	
-	function onError(error){
-		alert('code:'  +error.code  +'\n'+'message:' + error.message +'\n');
+		function onError(error){
+			alert('code:'  +error.code   +'\n'+'message:'+error.message+'\n');
+		}
 	}
-  }
-  
   function watchPosition(){
 	  
 	  var options={
